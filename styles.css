@@ -1,0 +1,268 @@
+/* ============================================================
+   STYLES.CSS - Repair & Maintenance Tracker
+   Dossani Paradise - All Styles
+   ============================================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #f5f3ef;
+    --card: #ffffff;
+    --primary: #2563eb;
+    --primary-light: #eff4ff;
+    --primary-hover: #1d4ed8;
+    --accent: #d97706;
+    --accent-light: #fef9ee;
+    --danger: #dc2626;
+    --danger-light: #fef2f2;
+    --warning: #ea580c;
+    --warning-light: #fff7ed;
+    --info: #2563eb;
+    --info-light: #eff4ff;
+    --text: #1e293b;
+    --text-mid: #475569;
+    --text-muted: #94a3b8;
+    --border: #e2e8f0;
+    --border-light: #f1f5f9;
+    --select-bg: #fafaf8;
+    --select-bg-hover: #ffffff;
+    --select-text: #1e293b;
+    --select-border: #cbd5e1;
+    --select-option-bg: #ffffff;
+    --select-option-text: #1e293b;
+    --select-option-placeholder: #64748b;
+    --select-option-disabled: #94a3b8;
+    --select-focus-ring: rgba(37,99,235,0.2);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.08);
+    --radius: 10px;
+    --radius-lg: 14px;
+
+    /* Status colors */
+    --status-unassigned: #dc2626;
+    --status-assigned: #7c3aed;
+    --status-dispatched: #0ea5e9;
+    --status-inprogress: #2563eb;
+    --status-waiting: #d97706;
+    --status-resolved: #059669;
+    --status-closed: #6b7280;
+}
+
+[data-theme="dark"] {
+    --bg: #0f1419;
+    --card: #1a1f2e;
+    --primary: #5b9cf6;
+    --primary-light: rgba(91,156,246,0.12);
+    --primary-hover: #4a8ae0;
+    --accent: #f0b429;
+    --accent-light: rgba(240,180,41,0.1);
+    --danger: #f87171;
+    --danger-light: rgba(248,113,113,0.1);
+    --warning: #fb923c;
+    --warning-light: rgba(251,146,60,0.1);
+    --info: #5b9cf6;
+    --info-light: rgba(91,156,246,0.1);
+    --text: #e2e8f0;
+    --text-mid: #94a3b8;
+    --text-muted: #64748b;
+    --border: #2a3040;
+    --border-light: #1e2433;
+    --select-bg: #141821;
+    --select-bg-hover: #1a1f2e;
+    --select-text: #e2e8f0;
+    --select-border: #374151;
+    --select-option-bg: #1a1f2e;
+    --select-option-text: #e2e8f0;
+    --select-option-placeholder: #94a3b8;
+    --select-option-disabled: #64748b;
+    --select-focus-ring: rgba(91,156,246,0.25);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+    font-size: 14px;
+}
+
+.hidden { display: none !important; }
+
+/* ---- Login Screen ---- */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-card {
+    background: var(--card);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    padding: 48px 40px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.login-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+}
+
+.login-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    font-size: 15px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    background: #fafaf8;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.btn-full { width: 100%; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+.btn-secondary { background: var(--border-light); color: var(--text); }
+
+/* App Shell & Header */
+.app-header {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Store Cards & Selection */
+.store-card {
+    background: var(--card);
+    border-radius: var(--radius-lg);
+    padding: clamp(14px, 3vw, 32px);
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+}
+
+.form-select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid var(--select-border);
+    border-radius: var(--radius);
+    font-size: 15px;
+    background: var(--select-bg);
+    color: var(--select-text);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23475569' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+/* Category & Ticket Cards */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.category-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 14px 10px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--border-light);
+    cursor: pointer;
+    min-height: 80px;
+}
+
+.ticket-card {
+    background: var(--card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+/* Toast & Feedback */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--text);
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: var(--radius-lg);
+    opacity: 0;
+    transition: all 0.3s;
+    pointer-events: none;
+    z-index: 300;
+}
+
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Map & Layout containers */
+#overviewMap { width: 100%; height: 420px; background: var(--bg); }
+.map-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+
+/* Experience Profiles */
+body.exp-admin-desktop .app-header { height: 68px; padding: 0 28px; }
+body.exp-manager-mobile .app-header { height: 52px; padding: 0 10px; }
+
+/* Kiosk mode */
+body.kiosk .admin-sum-card { flex:1 1 160px; min-height:110px; padding:20px 16px; border-radius:16px; }

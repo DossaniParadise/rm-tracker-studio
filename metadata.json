@@ -1,0 +1,6 @@
+{
+  "name": "Dossani Paradise R&M Tracker",
+  "description": "Repair and maintenance tracking system for Dossani Paradise Management locations.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": []
+}

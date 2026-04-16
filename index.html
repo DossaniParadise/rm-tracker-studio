@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dossani Paradise R&M Tracker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div id="loginScreen" class="login-container">
+    <div class="login-card">
+        <h1 class="login-title">Repair & Maintenance</h1>
+        <div id="loginForm">
+            <input type="email" id="loginEmail" class="form-input" placeholder="you@dossaniparadise.com">
+            <button class="btn btn-primary btn-full" style="margin-top:20px" onclick="sendSignInLink()">Send Link</button>
+        </div>
+        <div id="emailSentMessage" class="hidden">
+            <p>Check your inbox at <strong id="sentToEmail"></strong></p>
+        </div>
+    </div>
+</div>
+
+<div id="appContainer" class="app-container hidden">
+    <header class="app-header">
+        <div class="header-title">Dossani Paradise R&M</div>
+        <button class="btn btn-secondary" onclick="logout()">Sign Out</button>
+    </header>
+
+    <main id="appContent" class="app-content">
+        <!-- Dashboard Content -->
+        <div id="storeSelection" class="hidden">
+            <div class="store-card">
+                <h2>Select Store</h2>
+                <select id="storeSelect" class="form-select">
+                    <option value="">Choose...</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="managerLanding" class="hidden">
+            <h2>Manager Dashboard</h2>
+        </div>
+
+        <div id="techDashboard" class="hidden">
+            <h2>Tech Dashboard</h2>
+        </div>
+    </main>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
+
